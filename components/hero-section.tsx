@@ -1,0 +1,81 @@
+'use client'
+
+import { ArrowRight, Zap } from "lucide-react"
+import { ParticleTextEffect } from "./particle-text-effect"
+import { InfiniteSlider } from "./ui/infinite-slider"
+import { ProgressiveBlur } from "./ui/progressive-blur"
+import { handleFreeStart, handleFlouciStart } from "./hero-section-action"
+
+export function HeroSection() {
+  return (
+    <section className="py-20 px-4 relative overflow-hidden min-h-screen flex flex-col justify-between">
+      <div className="flex items-start justify-center pt-16" style={{ minHeight: 'clamp(260px, 45vw, 420px)' }}>
+        <ParticleTextEffect words={["مرشد", "قانون تونس", "تونس", "قانون"]} />
+      </div>
+
+      <div className="container mx-auto text-center relative z-10 pb-8">
+        <div className="max-w-4xl mx-auto">
+          <div className="flex flex-col items-center justify-center text-center px-4">
+            <h2 className="text-xl md:text-2xl font-bold text-white mb-4 max-w-3xl leading-relaxed">
+              مرشد القانوني التونسي هو منصة ذكية متخصصة في القانون التونسي للطلاب والمتخصصين
+            </h2>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+              </span>
+              <p className="text-sm md:text-base font-medium text-gray-200">
+                أكثر من <span className="text-white font-bold">+9000</span> طالب ومستخدم في تونس
+              </p>
+            </div>
+          </div>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-2">
+            {/* Free tier */}
+            <form action={handleFreeStart}>
+              <button
+                type="submit"
+                className="inline-flex items-center gap-3 px-7 py-2.5 rounded-full font-bold text-base transition-all duration-150 hover:scale-105 active:scale-95 border border-white/30"
+                style={{
+                  backgroundColor: 'rgba(255,255,255,0.1)',
+                  color: '#ffffff',
+                  boxShadow: '0 4px 14px 0 rgba(0,0,0,0.15)',
+                  backdropFilter: 'blur(8px)',
+                }}
+              >
+                <ArrowRight className="w-4 h-4 rotate-180" />
+                <span>ابدأ مجانًا – 10 رسائل</span>
+              </button>
+            </form>
+
+            {/* Paid tier — Flouci */}
+            <form action={handleFlouciStart}>
+              <button
+                type="submit"
+                className="inline-flex items-center gap-3 px-7 py-2.5 rounded-full font-bold text-base transition-all duration-150 hover:scale-105 active:scale-95"
+                style={{
+                  backgroundColor: '#ffffff',
+                  color: '#ef4444',
+                  boxShadow: '0 4px 24px 0 rgba(239,68,68,0.25)',
+                }}
+              >
+                <Zap className="w-4 h-4 fill-current" />
+                <span>20 دينار تونسي / شهر عبر Flouci
+ اشترك</span>
+              </button>
+            </form>
+          </div>
+
+          <p className="text-xs text-gray-400 mt-2 text-center">
+            المستخدمون المجانيون: 10 رسائل فقط &nbsp;·&nbsp; المشتركون: رسائل غير محدودة
+          </p>
+
+          <div className="mt-16 mb-8">
+            <div className="group relative m-auto max-w-6xl">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
