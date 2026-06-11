@@ -165,7 +165,7 @@ export function PricingSection() {
                     الرجاء التثبت من "mentions legales" أسفل هذه الصفحة قبل إرسال الطلب.
                   </p>
                   <div className="space-y-1 text-sm">
-                    <p className="text-white font-medium">📱 WhatsApp: +216 92 123 456</p>
+                    <p className="text-white font-medium">📱 WhatsApp: +216 28 888 612</p>
                     <p className="text-white font-medium">✉️ Email: contact@aibc.tn</p>
                     <div className="mt-3">
                       <a href="mailto:contact@aibc.tn?subject=%D8%B7%D9%84%D8%A8%20%D8%A7%D8%B3%D8%AA%D8%AC%D8%B1%D8%A7%D8%B9%20%D8%A7%D9%84%D9%85%D8%A8%D9%84%D8%BA" className="inline-block">
