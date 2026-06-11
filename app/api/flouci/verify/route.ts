@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 
 const FLOUCI_BASE = "https://developers.flouci.com/api/v2";
-const BOT_API_URL = "https://lgpt.eur.tn/api/v1";
-const BOT_URL = "https://lgpt.eur.tn";
-const WORKSPACE = "germany-write-in-german";
+const BOT_API_URL = "https://loi.morched.tn/api/v1";
+const BOT_URL = "https://loi.morched.tn";
+const WORKSPACE = "loi";
 const SHOP_URL = process.env.NEXT_PUBLIC_BASE_URL!;
 
 /**
