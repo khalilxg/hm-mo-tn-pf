@@ -17,7 +17,9 @@ export function HeroSection() {
         <div className="max-w-4xl mx-auto">
           <div className="flex flex-col items-center justify-center text-center px-4">
             <h2 className="text-xl md:text-2xl font-bold text-white mb-4 max-w-3xl leading-relaxed">
-              مرشد القانوني التونسي هو منصة ذكية متخصصة في القانون التونسي للطلاب والمتخصصين
+            
+            المرشد القانوني التونسي هو أول منصة ذكاء اصطناعي للمساعدة القانونية في تونس، متخصصة في القانون التونسي، وتوفر حلولًا ذكية للطلبة والمحامين والقضاة والباحثين والمهنيين القانونيين.
+            
             </h2>
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm">
               <span className="relative flex h-2 w-2">
