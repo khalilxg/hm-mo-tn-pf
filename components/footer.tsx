@@ -32,6 +32,9 @@ export function Footer() {
             <div className="col-span-1 md:col-span-2">
               <LeLoLogo className="mb-4" />
               <p className="text-white/70 mb-4 max-w-md">
+               مرشد .. أول منصة للمساعد القانوني الذكي  في تونس
+              </p>
+              <p className="text-white/70 mb-4 max-w-md">
                 منصة مرشد قانون تساعد طلبة الحقوق على الوصول إلى أكثر من 5000 وثيقة قانونية تونسية، وتسهيل المراجعة والتحضير للامتحانات.
               </p>
               <p className="text-sm text-white/50 italic">
