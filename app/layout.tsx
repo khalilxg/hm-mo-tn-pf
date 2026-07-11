@@ -4,8 +4,8 @@ import "./globals.css"
 import ClientLayout from "./ClientLayout"
 
 export const metadata: Metadata = {
-  title: "Morched Legale El Tounsi - مرشد القانوني التونسي",
-  description: "Morched Legale est une plateforme AI sous format chat comme messenger, actualisé avec les documents legales de tunisie, qui vise les étudiants et les professionnels. Des abonnements et differents offres sont disponibles",
+  title: "أول منصة للمساعد القانوني الذكي  في تونس Morched Legale El Tounsi - مرشد القانوني التونسي",
+  description: "Morched Legale est une plateforme AI sous format chat comme messenger, actualisé avec les documents legales de tunisie, qui vise les étudiants et les professionnels. Des abonnements et differents offres sont disponibles. مرشد .. أول منصة للمساعد القانوني الذكي  في تونس  ",
 icons: {
 icon: "/favicon.svg",
 },
