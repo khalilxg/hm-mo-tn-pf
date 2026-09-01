@@ -106,13 +106,13 @@ export function AnimatedFeaturesSection() {
                </span>
              </h3>
              <p className="text-white text-sm md:text-base font-bold leading-relaxed">
-               <span dir="ltr">ChatGPT</span> يمكن أن يولد تضليلات عامة ولكن
+               <span dir="ltr">ChatGPT</span> يعطي إجابات قانونية عامة، بينما
                <span className="text-red-500"> مرشد القانوني التونسي </span>
-               مبرمج حصرياً للقانون التونسي.
+               مبني حصريًا على قاعدة بيانات القانون التونسي.
              </p>
              <div className="mt-4 flex gap-4 text-[10px] md:text-xs">
-                <span className="flex items-center gap-1 text-green-400"><ShieldCheck size={12}/> 100% دقة قانونية</span>
-                <span className="flex items-center gap-1 text-red-400"><AlertTriangle size={12}/> بدون تضليلات العراقيل القانونية</span>
+                <span className="flex items-center gap-1 text-green-400"><ShieldCheck size={12}/> مبني على القانون التونسي فقط</span>
+                <span className="flex items-center gap-1 text-red-400"><AlertTriangle size={12}/> أداة تعليمية، ليست استشارة قانونية</span>
              </div>
           </motion.div>
 
@@ -126,8 +126,8 @@ export function AnimatedFeaturesSection() {
           />
           <BentoCard
             className="col-span-1"
-            title="العمادة"
-            value="دقيق"
+            title="الدقة"
+            value="عالية"
             icon={<ShieldCheck size={18} />}
             colors={["#171717", "#262626"]}
             delay={0.4}

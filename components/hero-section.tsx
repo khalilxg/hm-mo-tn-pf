@@ -4,11 +4,14 @@ import { ArrowRight, Zap } from "lucide-react"
 import { ParticleTextEffect } from "./particle-text-effect"
 import { InfiniteSlider } from "./ui/infinite-slider"
 import { ProgressiveBlur } from "./ui/progressive-blur"
+import { TunisiaMotif } from "./ui/tunisia-motif"
 import { handleFreeStart, handleFlouciStart } from "./hero-section-action"
 
 export function HeroSection() {
   return (
     <section className="py-20 px-4 relative overflow-hidden min-h-screen flex flex-col justify-between">
+      <TunisiaMotif className="absolute top-6 right-6 w-40 h-40 text-white pointer-events-none hidden md:block" opacity={0.05} />
+      <TunisiaMotif className="absolute bottom-10 left-6 w-32 h-32 text-white pointer-events-none hidden md:block rotate-12" opacity={0.04} />
       <div className="flex items-start justify-center pt-16" style={{ minHeight: 'clamp(260px, 45vw, 420px)' }}>
         <ParticleTextEffect words={["مرشد", "قانون تونس", "تونس", "قانون"]} />
       </div>

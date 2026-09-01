@@ -3,6 +3,7 @@
 import { useState } from "react"
 import Link from "next/link"
 import { LeLoLogo } from "./lelo-logo"
+import { TunisiaMotif } from "./ui/tunisia-motif"
 import { EditeurSection, ContactInfoSection, CGVSection, PrivacyPolicySection, Divider } from "./legal-content"
 
 export function Footer() {
@@ -12,9 +13,10 @@ export function Footer() {
     <>
       <footer
         dir="rtl"
-        className="bg-red-950 border-t border-white/10 py-12 px-4"
+        className="bg-red-950 border-t border-white/10 py-12 px-4 relative overflow-hidden"
       >
-        <div className="container mx-auto">
+        <TunisiaMotif className="absolute -bottom-12 -left-12 w-64 h-64 text-white pointer-events-none hidden md:block" opacity={0.04} />
+        <div className="container mx-auto relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
 
             {/* Partie gauche avec logo et description */}
@@ -62,6 +64,9 @@ export function Footer() {
                 </li>
                 <li>
                   <a href="#" className="hover:text-white transition-colors" dir="rtl">الوظائف</a>
+                </li>
+                <li>
+                  <a href="#disclaimer" className="hover:text-white transition-colors" dir="rtl">إخلاء المسؤولية</a>
                 </li>
                 <li>
                   <a href="#contact" className="hover:text-white transition-colors" dir="rtl">اتصل بنا</a>

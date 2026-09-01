@@ -145,6 +145,34 @@ export function CGVSection() {
         </p>
       </SubSection>
 
+      <SubSection title="Article 8 bis – Nature du service, intelligence artificielle et limitation de responsabilité">
+        <p>
+          Les services proposés par AIBC SARL, notamment l'application « Morched », constituent un outil
+          d'information et d'assistance à vocation éducative, basé sur l'intelligence artificielle, destiné à
+          faciliter la compréhension du droit tunisien. Ils ne constituent en aucun cas un avis juridique, une
+          consultation juridique, ni un substitut à l'intervention d'un avocat inscrit au barreau ou de tout autre
+          professionnel du droit qualifié.
+        </p>
+        <p className="mt-1">
+          Les réponses sont générées par des modèles d'intelligence artificielle fournis par des prestataires tiers
+          spécialisés, au même titre que toute application utilisant l'IA. Bien que la base documentaire juridique
+          soit actualisée périodiquement, elle peut, entre deux mises à jour, ne pas refléter les modifications
+          législatives ou réglementaires les plus récentes.
+        </p>
+        <p className="mt-1">
+          La seule source faisant foi en matière de droit tunisien est la publication officielle des textes de loi,
+          notamment le <strong>Journal Officiel de la République Tunisienne (JORT / الرائد الرسمي للجمهورية
+          التونسية)</strong> et les publications officielles des autorités compétentes.
+        </p>
+        <p className="mt-1">
+          En conséquence, AIBC SARL décline toute responsabilité quant à l'exactitude, l'exhaustivité ou
+          l'actualité des informations fournies par la plateforme, et ne pourra être tenue responsable d'une
+          décision prise par l'utilisateur sur la seule base des réponses générées. Il appartient à l'utilisateur de
+          vérifier toute information auprès des sources officielles ou d'un professionnel du droit avant toute
+          prise de décision juridique.
+        </p>
+      </SubSection>
+
       <SubSection title="Article 9 – Résolution des litiges et droit applicable">
         <p>
           En cas de litige, les parties s'efforceront de trouver une solution amiable. À défaut, les{" "}

@@ -1,6 +1,9 @@
 import { Header } from "@/components/header"
+import { DisclaimerBanner } from "@/components/disclaimer-banner"
 import { HeroSection } from "@/components/hero-section"
+import { HowItWorksSection } from "@/components/how-it-works-section"
 import { AnimatedFeaturesSection } from "@/components/animated-features-section"
+import { DisclaimerSection } from "@/components/disclaimer-section"
 import { PricingSection } from "@/components/pricing-section"
 import { FAQSection } from "@/components/faq-section"
 import { AnimatedCTASection } from "@/components/animated-cta-section"
@@ -12,8 +15,11 @@ export default function HomePage() {
     <div className="min-h-screen bg-background">
       <Header />
       <main className="pt-20">
+        <DisclaimerBanner />
         <HeroSection />
+        <HowItWorksSection />
         <AnimatedFeaturesSection />
+        <DisclaimerSection />
         <PricingSection />
         <FAQSection />
         <AnimatedCTASection />
