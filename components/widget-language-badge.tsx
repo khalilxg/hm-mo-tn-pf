@@ -17,9 +17,4 @@ export function WidgetLanguageBadge() {
     const timer = setTimeout(() => setVisible(false), 9000)
     return () => clearTimeout(timer)
   }, [])
-
-  if (!visible) return null
-
-  return (
-  )
 }
