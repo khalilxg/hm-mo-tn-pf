@@ -1,0 +1,32 @@
+{
+  "name": "مرشد القانوني التونسي",
+  "short_name": "مرشد",
+  "description": "أول منصة للمساعد القانوني الذكي في تونس — اسأل، افهم، وراجع القانون التونسي بسهولة.",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#cc0000",
+  "theme_color": "#990000",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/apple-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-light-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    }
+  ]
+}

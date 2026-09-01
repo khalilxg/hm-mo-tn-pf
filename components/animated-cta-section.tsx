@@ -47,7 +47,7 @@ export function AnimatedCTASection() {
             className="text-4xl font-bold text-white mb-4 drop-shadow-lg animate-fade-in-up"
             style={{ fontFamily: "var(--font-playfair)", animationDelay: "0.5s" }}
           >
-            هل أنت مستعد لالبدء برحلتك القانونية?
+            هل أنت مستعد للبدء برحلتك القانونية؟
           </h2>
           <p
             className="text-xl text-white/90 mb-8 max-w-2xl mx-auto drop-shadow-md animate-fade-in-up"

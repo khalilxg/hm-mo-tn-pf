@@ -4,6 +4,12 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
+  /* Reserved space below the fixed floating header so content (like the
+     disclaimer banner) never renders underneath it. Header.tsx overwrites
+     this with the real measured height on mount/resize; this value is only
+     the safe fallback used before JS runs or if JS is disabled. */
+  --header-space: 6.5rem;
+
   /* Red and white color scheme */
   --background: #cc0000;
   --foreground: #ffffff;

@@ -1,12 +1,13 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import Image from "next/image"
 import { LeLoLogo } from "./lelo-logo"
 import { Button } from "./ui/button"
 import Link from "next/link";
 
 export function Header() {
+  const headerRef = useRef<HTMLElement>(null)
   const [isScrolled, setIsScrolled] = useState(false)
   const [isVisible, setIsVisible] = useState(true)
   const [lastScrollY, setLastScrollY] = useState(0)
@@ -30,8 +31,40 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [lastScrollY])
 
+  // Measures the real, current height of the floating header (it's fixed
+  // with a `top-4` offset, and its height changes across breakpoints and
+  // whenever the logo/nav wraps). We publish that height as a CSS variable
+  // so any section that sits right under the header (like the disclaimer
+  // banner) can reserve exactly enough space and never get clipped —
+  // instead of relying on a guessed, fixed padding value.
+  useEffect(() => {
+    const TOP_OFFSET = 16 // matches the header's `top-4`
+    const BUFFER = 16 // small breathing room below the header
+
+    const updateHeaderSpace = () => {
+      if (!headerRef.current) return
+      const height = headerRef.current.offsetHeight
+      document.documentElement.style.setProperty(
+        "--header-space",
+        `${height + TOP_OFFSET + BUFFER}px`,
+      )
+    }
+
+    updateHeaderSpace()
+
+    const resizeObserver = new ResizeObserver(updateHeaderSpace)
+    if (headerRef.current) resizeObserver.observe(headerRef.current)
+    window.addEventListener("resize", updateHeaderSpace)
+
+    return () => {
+      resizeObserver.disconnect()
+      window.removeEventListener("resize", updateHeaderSpace)
+    }
+  }, [])
+
   return (
     <header
+      ref={headerRef}
 className={`
   fixed top-4 left-1/2 transform -translate-x-1/2 z-50
   transition-all duration-300 ease-in-out

@@ -2,7 +2,8 @@
 
 import type React from "react"
 import { Inter, JetBrains_Mono, Playfair_Display } from "next/font/google"
-import { Suspense } from "react"
+import { Suspense, useEffect } from "react"
+import { PWAInstallPrompt } from "@/components/pwa-install-prompt"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -25,9 +26,20 @@ function ClientLayoutContent({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  useEffect(() => {
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("/sw.js").catch(() => {
+        // Installability still works without it in most browsers; fail silently.
+      })
+    }
+  }, [])
+
   return (
     <html lang="ar" dir="rtl">
-      <body className={`font-sans ${inter.variable} ${jetbrainsMono.variable} ${playfair.variable}`}>{children}</body>
+      <body className={`font-sans ${inter.variable} ${jetbrainsMono.variable} ${playfair.variable}`}>
+        {children}
+        <PWAInstallPrompt />
+      </body>
     </html>
   )
 }

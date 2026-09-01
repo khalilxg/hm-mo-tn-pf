@@ -136,7 +136,7 @@ export function AnimatedFeaturesSection() {
           <div className="col-span-2 md:col-span-4 bg-gradient-to-r from-red-600 to-red-900 p-6 rounded-3xl flex items-center justify-between border border-white/10 group">
             <div>
                <h4 className="text-white font-black text-lg md:text-2xl">
-                 الالطباعات <span dir="ltr">1980–2025</span>
+                 المطبوعات <span dir="ltr">1980–2025</span>
                </h4>
                <p className="text-red-100 text-xs md:text-sm">
                  تتم تحديث قاعدة المعلومات تلقائياً مع كل قانون جديد لضمان الوصول إلى أحدث معلومات قانونية.

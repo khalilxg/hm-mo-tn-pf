@@ -14,7 +14,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <main className="pt-20">
+      <main style={{ paddingTop: "var(--header-space, 6rem)" }}>
         <DisclaimerBanner />
         <HeroSection />
         <HowItWorksSection />
