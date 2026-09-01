@@ -20,7 +20,7 @@ export function HeroSection() {
       <TunisiaMotif className="absolute top-6 right-6 w-40 h-40 text-white pointer-events-none hidden md:block" opacity={0.05} />
       <TunisiaMotif className="absolute bottom-10 left-6 w-32 h-32 text-white pointer-events-none hidden md:block rotate-12" opacity={0.04} />
       <div className="flex items-start justify-center pt-16" style={{ minHeight: 'clamp(260px, 45vw, 420px)' }}>
-        <ParticleTextEffect words={["مرشد", "قانون تونس", "تونس", "قانون"]} />
+        <ParticleTextEffect words={["مرشد", "قانون", "تونس", "قانون"]} />
       </div>
 
       <div className="container mx-auto text-center relative z-10 pb-8">
@@ -28,7 +28,7 @@ export function HeroSection() {
           <div className="flex flex-col items-center justify-center text-center px-4">
             <h2 className="text-xl md:text-2xl font-bold text-white mb-4 max-w-3xl leading-relaxed">
             
-            المرشد القانوني التونسي هو أول منصة ذكاء اصطناعي للمساعدة القانونية في تونس، متخصصة في القانون التونسي، وتوفر حلولًا ذكية للطلبة والمحامين والقضاة والباحثين والمهنيين القانونيين.
+            المرشد القانوني التونسي هو أول منصة ذكاء اصطناعي للمساعدة القانونية في تونس.
             
             </h2>
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm">
@@ -37,7 +37,7 @@ export function HeroSection() {
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
               </span>
               <p className="text-sm md:text-base font-medium text-gray-200">
-                أكثر من <span className="text-white font-bold">+9000</span> طالب ومستخدم في تونس
+                أكثر من <span className="text-white font-bold">+2000</span> طالب ومستخدم في تونس
               </p>
             </div>
           </div>
@@ -52,7 +52,7 @@ export function HeroSection() {
           >
             <Languages className="w-5 h-5 shrink-0" />
             <p className="text-xs md:text-sm font-semibold leading-relaxed">
-              تنبيه: يفهم مرشد اللغة العربية فقط (مع الأرقام والحروف اللاتينية وعلامات الترقيم) — يُرجى عدم الكتابة بلغات أخرى، لن يتم قبولها.
+              تنبيه: يتمم مرشد اللغة العربية فقط (مع الأرقام والحروف اللاتينية وعلامات الترقيم).
             </p>
           </div>
 
