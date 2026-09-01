@@ -1,11 +1,18 @@
 'use client'
 
-import { ArrowRight, Zap } from "lucide-react"
+import { Zap, GraduationCap, Building2, Languages } from "lucide-react"
 import { ParticleTextEffect } from "./particle-text-effect"
 import { InfiniteSlider } from "./ui/infinite-slider"
 import { ProgressiveBlur } from "./ui/progressive-blur"
 import { TunisiaMotif } from "./ui/tunisia-motif"
-import { handleFreeStart, handleFlouciStart } from "./hero-section-action"
+import {
+  handleFreeStart,
+  handleFlouciStart,
+  handleEnterpriseStart,
+} from "./hero-section-action"
+import { SUBSCRIPTION_PRICE_MILLIMES } from "@/lib/pricing"
+
+const subscribeWithAmount = handleFlouciStart.bind(null, SUBSCRIPTION_PRICE_MILLIMES)
 
 export function HeroSection() {
   return (
@@ -35,8 +42,22 @@ export function HeroSection() {
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-2">
-            {/* Free tier */}
+          {/* Visible, unmissable notice: the assistant only understands Arabic
+              script (plus Latin letters, Arabic-Indic/Latin numerals and
+              punctuation). This is intentionally placed right above the
+              action buttons so nobody can miss it before they start typing. */}
+          <div
+            dir="rtl"
+            className="mt-6 mx-auto max-w-2xl flex items-center justify-center gap-2 rounded-xl border border-yellow-300/40 bg-yellow-400/10 px-4 py-2.5 text-yellow-100"
+          >
+            <Languages className="w-5 h-5 shrink-0" />
+            <p className="text-xs md:text-sm font-semibold leading-relaxed">
+              تنبيه: يفهم مرشد اللغة العربية فقط (مع الأرقام والحروف اللاتينية وعلامات الترقيم) — يُرجى عدم الكتابة بلغات أخرى، لن يتم قبولها.
+            </p>
+          </div>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-6">
+            {/* Student test view — free, 10-message trial */}
             <form action={handleFreeStart}>
               <button
                 type="submit"
@@ -48,13 +69,30 @@ export function HeroSection() {
                   backdropFilter: 'blur(8px)',
                 }}
               >
-                <ArrowRight className="w-4 h-4 rotate-180" />
-                <span>ابدأ مجانًا – 10 رسائل</span>
+                <GraduationCap className="w-4 h-4" />
+                <span>تجربة الطلبة – 10 رسائل مجانًا</span>
               </button>
             </form>
 
-            {/* Paid tier — Flouci */}
-            <form action={handleFlouciStart}>
+            {/* Enterprise — redirects to the main Morched platform */}
+            <form action={handleEnterpriseStart}>
+              <button
+                type="submit"
+                className="inline-flex items-center gap-3 px-7 py-2.5 rounded-full font-bold text-base transition-all duration-150 hover:scale-105 active:scale-95 border border-white/30"
+                style={{
+                  backgroundColor: 'rgba(255,255,255,0.1)',
+                  color: '#ffffff',
+                  boxShadow: '0 4px 14px 0 rgba(0,0,0,0.15)',
+                  backdropFilter: 'blur(8px)',
+                }}
+              >
+                <Building2 className="w-4 h-4" />
+                <span>للمؤسسات – منصة مرشد الكاملة</span>
+              </button>
+            </form>
+
+            {/* Paid subscription — single yearly plan */}
+            <form action={subscribeWithAmount}>
               <button
                 type="submit"
                 className="inline-flex items-center gap-3 px-7 py-2.5 rounded-full font-bold text-base transition-all duration-150 hover:scale-105 active:scale-95"
@@ -65,14 +103,13 @@ export function HeroSection() {
                 }}
               >
                 <Zap className="w-4 h-4 fill-current" />
-                <span>20 دينار تونسي / شهر عبر Flouci
- اشترك</span>
+                <span>94 دينار / سنة عبر Flouci — اشترك</span>
               </button>
             </form>
           </div>
 
           <p className="text-xs text-gray-400 mt-2 text-center">
-            المستخدمون المجانيون: 10 رسائل فقط &nbsp;·&nbsp; المشتركون: رسائل غير محدودة
+            تجربة الطلبة: 10 رسائل فقط &nbsp;·&nbsp; المشتركون: رسائل غير محدودة طوال السنة
           </p>
 
           <div className="mt-16 mb-8">

@@ -6,33 +6,30 @@ import { Button } from "./ui/button"
 import { Check } from "lucide-react"
 import { Phone } from "lucide-react"
 import { handleFlouciStart } from "./hero-section-action"
+import { SUBSCRIPTION_PRICE_MILLIMES } from "@/lib/pricing"
 
+const subscribeWithAmount = handleFlouciStart.bind(null, SUBSCRIPTION_PRICE_MILLIMES)
+
+// Only two offers now: one flat yearly subscription, and the enterprise /
+// private-instance package (contact us). The previous 20 DT and 40 DT
+// monthly tiers were removed on request.
 const pricingPlans = [
   {
-    name: "طالب",
-    price: "20 دينار",
-    description: "الخيار المثالي للطلاب الذين يبحثون عن السرعة والدقة وتوفير الوقت.",
+    name: "الاشتراك السنوي",
+    price: "94 دينار",
+    priceSuffix: "/ السنة",
+    description: "كل ما تحتاجه من مرشد القانوني التونسي، بسعر واحد وبسيط طوال السنة.",
     features: [
-      "مدة الاشتراك: 7 أشهر + 5 أشهر مجانا",
-      "500 رسالة مع الذكاء الاصطناعي",
-      "أكثر من 5000 وثيقة قانونية",
-    ],
-  },
-  {
-    name: "خطة متقدمة",
-    price: "40 دينار",
-    description: "للطلاب المتقدمين والمتخصصين: دقة أعلى – محتوى أكثر – دعم أسرع.",
-    features: [
-      "مدة الاشتراك: 7 أشهر + 5 أشهر مجانا",
-      "1000 رسالة مع الذكاء الاصطناعي",
-      "الوصول الكامل إلى جميع الجرائد القانونية",
+      "اشتراك لمدة 12 شهرًا كاملة",
+      "رسائل غير محدودة مع الذكاء الاصطناعي",
+      "أكثر من 5000 وثيقة قانونية والوصول الكامل إلى الجرائد الرسمية",
     ],
     popular: true,
   },
   {
     name: "الخطة المؤسسية – حل خاص للمؤسسات",
     price: "حل مخصص",
-    description: "حل شامل يوفر لمؤسستك نسخة 100% خاصة.",
+    description: "احصل على نسختك الخاصة (Instance) — تواصل معنا لتفاصيل الأسعار والتنفيذ.",
     features: [
       "نسخة خاصة كاملة",
       "نشر كصورة Docker",
@@ -72,9 +69,13 @@ export function PricingSection() {
       id="pricing"
       className="py-16 px-4 bg-gradient-to-b from-red-700 to-red-900 min-h-screen text-white relative"
     >
+      {/* Raised well above the default bottom-right corner so it doesn't
+          overlap the AnythingLLM chat bubble (bottom-right) or the "student
+          test" badge that floats just above it (see anythingllm-widget.tsx
+          and widget-language-badge.tsx). */}
       <a
         href="tel:+21628888612"
-        className="fixed bottom-6 right-6 bg-white hover:bg-red-100 text-red-600 rounded-full shadow-xl p-4 z-50 flex items-center justify-center transition transform hover:scale-110"
+        className="fixed bottom-44 right-6 bg-white hover:bg-red-100 text-red-600 rounded-full shadow-xl p-4 z-40 flex items-center justify-center transition transform hover:scale-110"
       >
         <Phone className="w-7 h-7" />
       </a>
@@ -86,7 +87,7 @@ export function PricingSection() {
       </div>
 
       <div className="container mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto">
           {pricingPlans.map((plan, index) => (
             <motion.div
               key={index}
@@ -100,12 +101,17 @@ export function PricingSection() {
             >
               {plan.popular && (
                 <div className="absolute top-3 right-3 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded">
-                  الأكثر شعبية
+                  العرض الوحيد
                 </div>
               )}
               <div className="flex-1">
                 <h3 className="text-3xl font-bold mb-3">{plan.name}</h3>
-                <div className="text-4xl font-extrabold mb-1">{plan.price}</div>
+                <div className="text-4xl font-extrabold mb-1">
+                  {plan.price}
+                  {plan.priceSuffix && (
+                    <span className="text-lg font-semibold opacity-70"> {plan.priceSuffix}</span>
+                  )}
+                </div>
                 {!plan.enterprise && (
                   <p className="text-xs text-white/60 mb-4">
                     السعر بالدينار التونسي (TND) شامل الأداء على القيمة المضافة (TVA)
@@ -127,22 +133,30 @@ export function PricingSection() {
                   className="mt-auto w-full bg-white text-red-700 font-extrabold py-3 rounded-xl hover:bg-red-100"
                   onClick={() => handleSubscribeClick(plan)}
                 >
-                  اتصل بنا الآن
+                  اتصل بنا الآن — أو اطلب نسختك الخاصة
                 </Button>
               ) : (
                 /* Flouci payment button — server action via form */
-                <form action={handleFlouciStart}>
+                <form action={subscribeWithAmount}>
                   <Button
                     type="submit"
                     className="mt-auto w-full bg-white text-red-700 font-extrabold py-3 rounded-xl hover:bg-red-100"
                   >
-                    اشترك الآن
+                    اشترك الآن — 94 دينار / سنة
                   </Button>
                 </form>
               )}
             </motion.div>
           ))}
         </div>
+
+        <p className="text-center text-sm text-white/70 mt-8 max-w-2xl mx-auto leading-relaxed">
+          تحتاج عرضًا أكبر أو تخصيصًا خاصًا بمؤسستك؟{" "}
+          <a href="tel:+21628888612" className="underline font-semibold hover:text-white">
+            اتصل بنا
+          </a>{" "}
+          للحصول على نسختك الخاصة (Instance) وتفاصيل الأسعار.
+        </p>
       </div>
 
       <div className="max-w-3xl mx-auto mt-8 px-2">
