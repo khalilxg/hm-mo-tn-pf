@@ -55,7 +55,7 @@ export function PricingSection() {
 
   const handleSubscribeClick = (plan: typeof pricingPlans[number]) => {
     if (plan.enterprise) {
-      window.location.href = "tel:+201234567"
+      window.location.href = "tel:+21628888612"
       return
     }
 
@@ -73,7 +73,7 @@ export function PricingSection() {
       className="py-16 px-4 bg-gradient-to-b from-red-700 to-red-900 min-h-screen text-white relative"
     >
       <a
-        href="tel:+201234567"
+        href="tel:+21628888612"
         className="fixed bottom-6 right-6 bg-white hover:bg-red-100 text-red-600 rounded-full shadow-xl p-4 z-50 flex items-center justify-center transition transform hover:scale-110"
       >
         <Phone className="w-7 h-7" />

@@ -4,6 +4,7 @@ import { AnimatedFeaturesSection } from "@/components/animated-features-section"
 import { PricingSection } from "@/components/pricing-section"
 import { FAQSection } from "@/components/faq-section"
 import { AnimatedCTASection } from "@/components/animated-cta-section"
+import { ContactSection } from "@/components/contact-section"
 import { Footer } from "@/components/footer"
 
 export default function HomePage() {
@@ -16,6 +17,7 @@ export default function HomePage() {
         <PricingSection />
         <FAQSection />
         <AnimatedCTASection />
+        <ContactSection />
       </main>
       <Footer />
     </div>
