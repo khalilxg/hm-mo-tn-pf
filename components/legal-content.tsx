@@ -89,10 +89,18 @@ export function CGVSection() {
 
       <SubSection title="Article 3 – Prix et modalités de paiement">
         <p>
-          Les prix sont affichés en dinars tunisiens (TND) et incluent les taxes applicables, sauf indication
-          contraire. Aucun frais supplémentaire n'est appliqué en dehors du prix affiché avant paiement. Les
-          paiements sont réalisés en ligne via la passerelle sécurisée <strong>Flouci</strong> et les services de{" "}
-          <strong>Monétique Tunisie</strong>. Le paiement est exigible immédiatement lors de la validation de la
+          Les prix sont affichés en dinars tunisiens (TND) et incluent la Taxe sur la Valeur Ajoutée (TVA)
+          applicable en vigueur en Tunisie, sauf indication contraire. Aucun frais supplémentaire n'est appliqué en
+          dehors du prix affiché avant paiement, pour l'achat de la formule (« pack ») choisie.
+        </p>
+        <p className="mt-1">
+          Toute prestation ou tout achat additionnel effectué en dehors du pack souscrit (par exemple, des messages
+          supplémentaires ou des services complémentaires) est soumis à la TVA de manière distincte, laquelle est
+          ajoutée au prix affiché de cette prestation additionnelle au moment de l'achat.
+        </p>
+        <p className="mt-1">
+          Les paiements sont réalisés en ligne via la passerelle sécurisée <strong>Flouci</strong> et les services
+          de <strong>Monétique Tunisie</strong>. Le paiement est exigible immédiatement lors de la validation de la
           commande. AIBC SARL ne stocke aucune donnée bancaire.
         </p>
       </SubSection>

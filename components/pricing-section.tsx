@@ -105,7 +105,13 @@ export function PricingSection() {
               )}
               <div className="flex-1">
                 <h3 className="text-3xl font-bold mb-3">{plan.name}</h3>
-                <div className="text-4xl font-extrabold mb-4">{plan.price}</div>
+                <div className="text-4xl font-extrabold mb-1">{plan.price}</div>
+                {!plan.enterprise && (
+                  <p className="text-xs text-white/60 mb-4">
+                    السعر بالدينار التونسي (TND) شامل الأداء على القيمة المضافة (TVA)
+                  </p>
+                )}
+                {plan.enterprise && <div className="mb-4" />}
                 <p className="opacity-80 mb-6 leading-relaxed">{plan.description}</p>
                 <ul className="space-y-3 mb-8">
                   {plan.features.map((f, i) => (
@@ -137,6 +143,14 @@ export function PricingSection() {
             </motion.div>
           ))}
         </div>
+      </div>
+
+      <div className="max-w-3xl mx-auto mt-8 px-2">
+        <p className="text-center text-xs md:text-sm text-white/60 leading-relaxed">
+          جميع الأسعار المعروضة أعلاه معلنة بالدينار التونسي (TND) وتشمل الأداء على القيمة المضافة (TVA) المعمول
+          به قانونيًا في تونس. أي عملية شراء إضافية خارج نطاق الباقة المشترَك فيها (مثل رسائل إضافية أو خدمات
+          تكميلية) تخضع للـ TVA بشكل منفصل وتُضاف إلى السعر المعلن وقت الشراء.
+        </p>
       </div>
 
       <AnimatePresence>
