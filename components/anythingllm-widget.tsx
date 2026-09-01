@@ -23,18 +23,6 @@ import Script from "next/script"
 export function AnythingLLMWidget() {
   return (
     <Script
-      id="anythingllm-embed-chat-widget"
-      src="https://loi.morched.tn/embed/anythingllm-chat-widget.min.js"
-      data-embed-id="2696b205-cda6-42dd-a00e-13c66a1c3e28"
-      data-base-api-url="https://loi.morched.tn/api/embed"
-      data-brand-image-url="https://legale.morched.tn/favicon.svg"
-      data-assistant-name="مرشد القانوني الذكي"
-      data-no-sponsor="true"
-      data-chat-icon="chatBubble"
-      data-button-color="#990000"
-      data-position="bottom-right"
-      data-greeting="مرحبًا 👋 أنا مرشد، مساعدك القانوني الذكي في تونس. اكتب سؤالك بالعربية وسأجيبك."
-      strategy="afterInteractive"
     />
   )
 }
