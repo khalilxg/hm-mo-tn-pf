@@ -21,17 +21,5 @@ export function WidgetLanguageBadge() {
   if (!visible) return null
 
   return (
-    <div
-      dir="rtl"
-      className="fixed bottom-24 right-6 z-40 max-w-[220px] rounded-2xl rounded-br-sm border border-white/20 bg-red-950/95 px-3 py-2 text-white shadow-xl backdrop-blur-sm animate-in fade-in slide-in-from-bottom-2"
-    >
-      <div className="flex items-center gap-1.5 text-xs font-bold mb-1">
-        <GraduationCap className="w-3.5 h-3.5 shrink-0" />
-        نسخة اختبارية للطلبة
-      </div>
-      <p className="text-[11px] leading-snug text-white/80">
-        اكتب بالعربية فقط (أرقام وحروف لاتينية وعلامات ترقيم مسموحة)
-      </p>
-    </div>
   )
 }
