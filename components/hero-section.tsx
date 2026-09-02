@@ -31,7 +31,7 @@ export function HeroSection() {
           refresh never shows a mismatched flash/blink before particles draw. */}
       <div
         className="flex items-start justify-center pt-16 relative -mx-4"
-        style={{ minHeight: 'clamp(380px, 60vw, 560px)', backgroundColor: PARTICLE_BG }}
+        style={{ minHeight: 'clamp(460px, 80vw, 720px)', backgroundColor: PARTICLE_BG }}
       >
         <ParticleTextEffect words={["مرشد", "قانون", "تونس", "قانون"]} />
       </div>

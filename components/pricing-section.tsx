@@ -3,8 +3,7 @@
 import { useState, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "./ui/button"
-import { Check } from "lucide-react"
-import { Phone } from "lucide-react"
+import { Check, ShoppingBag } from "lucide-react"
 import { handleFlouciStart } from "./hero-section-action"
 import { SUBSCRIPTION_PRICE_MILLIMES } from "@/lib/pricing"
 
@@ -70,13 +69,18 @@ export function PricingSection() {
       className="py-10 md:py-16 px-4 bg-gradient-to-b from-red-700 to-red-900 min-h-screen text-white relative"
     >
       {/* Left side, stacked just above the donation button
-          (components/donation-button.tsx, bottom-6 left-6, ~64px tall). */}
-      <a
-        href="tel:+21628888612"
-        className="fixed bottom-28 left-6 bg-white hover:bg-red-100 text-red-600 rounded-full shadow-xl p-4 z-40 flex items-center justify-center transition transform hover:scale-110"
-      >
-        <Phone className="w-7 h-7" />
-      </a>
+          (components/donation-button.tsx, bottom-6 left-6, ~64px tall).
+          Buys the 94 DT/year pack directly — replaces the old "call us"
+          phone button. */}
+      <form action={subscribeWithAmount} className="fixed bottom-28 left-6 z-40">
+        <button
+          type="submit"
+          aria-label="اشترِ باقة مرشد — 94 دينار / سنة"
+          className="bg-white hover:bg-red-100 text-red-600 rounded-full shadow-xl p-4 flex items-center justify-center transition transform hover:scale-110"
+        >
+          <ShoppingBag className="w-7 h-7" />
+        </button>
+      </form>
 
       <div className="text-center text-2xl md:text-3xl font-extrabold mb-12 leading-relaxed">
         قوة القانون … مع ذكاء اصطناعي يفهمك ويدعمك ويوفر عليك ساعات العمل.
