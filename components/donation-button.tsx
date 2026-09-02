@@ -32,10 +32,11 @@ export function DonationButton() {
         type="button"
         onClick={() => setOpen(true)}
         aria-label="تبرع لدعم مرشد"
-        className="fixed bottom-60 left-6 z-50 flex w-20 h-20 flex-col items-center justify-center gap-0.5 rounded-full bg-white text-red-600 shadow-xl transition hover:scale-110 hover:bg-red-50"      >
+        className="fixed bottom-60 left-6 z-50 flex h-20 w-20 flex-col items-center justify-center gap-1 rounded-full bg-white text-red-600 shadow-xl transition hover:scale-110 hover:bg-red-50"
+      >
         <span className="absolute inset-0 rounded-full bg-red-400/40 animate-ping" />
-        <span className="relative text-[11px] font-extrabold leading-none">تبرع</span>
-        <Heart className="relative w-2 h-2 fill-red-500 text-red-500" />
+        <span className="relative text-sm font-extrabold leading-none">تبرع</span>
+        <Heart className="relative h-5 w-5 fill-red-500 text-red-500" />
       </button>
 
       <AnimatePresence>
