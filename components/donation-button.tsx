@@ -1,31 +1,32 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Heart, Sparkles, X } from "lucide-react"
+import { Heart, Sparkles, X, CheckCircle2 } from "lucide-react"
+import { handleDonationStart } from "./hero-section-action"
 
 /**
  * Floating "Donate / support us" button.
  *
- * There's no dedicated donation payment gateway wired up yet — no such
- * integration was provided — so the popup opens with a warm, sincere message
- * about supporting free/low-cost legal-AI access for students (tech for
- * good, education) and funnels genuinely interested donors to WhatsApp /
- * email, the same channels already used for support elsewhere on this site.
- * If/when a donation payment link exists, drop it into DONATION_LINK below
- * and it'll be used automatically.
+ * The donor types a digit-only amount (in TND), clicks "تبرع" (donate), and
+ * is redirected to Flouci to pay. Flouci then redirects back to this same
+ * site's homepage (see /api/flouci/verify-donation) — a donation doesn't
+ * grant chat access like a subscription does, it just says thank you.
  */
-const DONATION_LINK: string | null = null // e.g. "https://flouci.me/pay/xxxxx"
-const WHATSAPP_NUMBER = "21628888612"
-const CONTACT_EMAIL = "contact@aibc.tn"
+const MIN_AMOUNT = 1
+const DEFAULT_AMOUNT = 10
 
 export function DonationButton() {
   const [open, setOpen] = useState(false)
+  const [amount, setAmount] = useState(String(DEFAULT_AMOUNT))
+
+  const numericAmount = Math.max(MIN_AMOUNT, Number(amount) || 0)
+  const donateAction = handleDonationStart.bind(null, String(numericAmount * 1000)) // TND → millimes
 
   return (
     <>
-      {/* Floating button — placed bottom-left so it never collides with the
-          phone button or the AnythingLLM chat bubble, both anchored right. */}
+      {/* Floating button — bottom-left so it never collides with anything
+          anchored bottom-right. */}
       <button
         type="button"
         onClick={() => setOpen(true)}
@@ -69,43 +70,93 @@ export function DonationButton() {
               <div className="relative z-10">
                 <Heart className="w-12 h-12 mx-auto mb-4 fill-white text-white animate-pulse" />
                 <h3 className="text-2xl font-extrabold mb-3">شكرًا لتفكيرك فينا 💛</h3>
-                <p className="text-white/90 leading-relaxed mb-4">
-                  مرشد مشروع تونسي يؤمن بأن التقنية يجب أن تكون في خدمة الخير — تعليم مجاني الوصول إليه، ومعرفة
-                  قانونية متاحة لكل طالب وطالبة مهما كانت إمكانياتهم. دعمك، مهما كان بسيطًا، يساعدنا على إبقاء
-                  التجربة المجانية متاحة للطلبة وتطوير المحتوى القانوني لفائدة الجميع.
-                </p>
-                <p className="text-sm text-white/70 mb-6">
-                  تواصل معنا وسنُسعد بشرح كيف يمكنك المساهمة في دعم التعليم والتقنية من أجل الخير في تونس 🇹🇳
+                <p className="text-white/90 leading-relaxed mb-6">
+                  دعمك يساعد على تطوير الذكاء الاصطناعي في خدمة التعليم في تونس، وإبقاء تجربة الطلبة
+                  مجانية، والاستمرار في النمو لفائدة أكبر عدد ممكن من الطلبة والباحثين.
                 </p>
 
-                {DONATION_LINK ? (
-                  <a
-                    href={DONATION_LINK}
-                    className="block w-full rounded-xl bg-white py-3 font-extrabold text-red-700 hover:bg-red-100 transition"
-                  >
-                    ادعم الآن
-                  </a>
-                ) : (
-                  <div className="flex flex-col sm:flex-row gap-3">
-                    <a
-                      href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("مرحبا، أريد دعم مشروع مرشد القانوني التونسي 💛")}`}
-                      className="flex-1 rounded-xl bg-white py-3 font-extrabold text-red-700 hover:bg-red-100 transition"
-                    >
-                      واتساب
-                    </a>
-                    <a
-                      href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("دعم مشروع مرشد")}`}
-                      className="flex-1 rounded-xl border border-white/40 py-3 font-extrabold text-white hover:bg-white/10 transition"
-                    >
-                      البريد الإلكتروني
-                    </a>
+                <form action={donateAction} className="space-y-4">
+                  <div>
+                    <label htmlFor="donation-amount" className="block text-sm text-white/70 mb-2">
+                      المبلغ (دينار تونسي)
+                    </label>
+                    <div className="flex items-center justify-center gap-2">
+                      <input
+                        id="donation-amount"
+                        name="amountDisplay"
+                        type="text"
+                        inputMode="numeric"
+                        pattern="[0-9]*"
+                        value={amount}
+                        onChange={(e) => setAmount(e.target.value.replace(/[^0-9]/g, ""))}
+                        className="w-24 rounded-xl border border-white/30 bg-white/10 px-3 py-2 text-center text-xl font-bold text-white outline-none focus:border-white"
+                      />
+                      <span className="text-white/80 font-semibold">د.ت</span>
+                    </div>
                   </div>
-                )}
+
+                  <button
+                    type="submit"
+                    disabled={numericAmount < MIN_AMOUNT}
+                    className="w-full rounded-xl bg-white py-3 font-extrabold text-red-700 hover:bg-red-100 transition disabled:opacity-50"
+                  >
+                    تبرع الآن
+                  </button>
+                </form>
               </div>
             </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
     </>
+  )
+}
+
+/**
+ * Reads `?donation=success|failed|cancelled|error` set by
+ * /api/flouci/verify-donation after the donor returns from Flouci, and
+ * shows a short thank-you (or apology) banner. Mount once near the top of
+ * the page.
+ */
+export function DonationThanksBanner() {
+  const [status, setStatus] = useState<string | null>(null)
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    const donation = params.get("donation")
+    if (donation) {
+      setStatus(donation)
+      params.delete("donation")
+      const newQuery = params.toString()
+      const newUrl = window.location.pathname + (newQuery ? `?${newQuery}` : "")
+      window.history.replaceState({}, "", newUrl)
+      const timer = setTimeout(() => setStatus(null), 7000)
+      return () => clearTimeout(timer)
+    }
+  }, [])
+
+  if (!status) return null
+
+  const isSuccess = status === "success"
+
+  return (
+    <div
+      dir="rtl"
+      className="fixed top-24 inset-x-0 mx-auto w-fit max-w-[92vw] z-[70] flex items-center gap-2 rounded-xl border px-4 py-3 shadow-xl backdrop-blur-sm text-center
+        border-white/20 bg-red-800/95 text-white"
+    >
+      {isSuccess ? (
+        <>
+          <CheckCircle2 className="w-5 h-5 text-green-300 shrink-0" />
+          <p className="text-sm font-semibold">
+            شكرًا لدعمك مرشد 💛 ساهمت في دعم الذكاء الاصطناعي من أجل التعليم والنمو في تونس.
+          </p>
+        </>
+      ) : (
+        <p className="text-sm font-semibold">
+          لم تكتمل عملية التبرع. يمكنك إعادة المحاولة في أي وقت 🙏
+        </p>
+      )}
+    </div>
   )
 }

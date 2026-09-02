@@ -9,11 +9,13 @@ import { FAQSection } from "@/components/faq-section"
 import { AnimatedCTASection } from "@/components/animated-cta-section"
 import { ContactSection } from "@/components/contact-section"
 import { Footer } from "@/components/footer"
+import { DonationThanksBanner } from "@/components/donation-button"
 
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-background">
       <Header />
+      <DonationThanksBanner />
       <main style={{ paddingTop: "var(--header-space, 6rem)" }}>
         <DisclaimerBanner />
         <HeroSection />

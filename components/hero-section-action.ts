@@ -121,7 +121,47 @@ export async function handleEnterpriseStart() {
   }
 }
 
-// ─── PAID USER (Flouci) ───────────────────────────────────────────────────────
+// ─── DONATION (Flouci) ────────────────────────────────────────────────────
+// A donation isn't a subscription: it doesn't grant chat access, so it uses
+// its own verify route (/api/flouci/verify-donation) that redirects back to
+// the homepage on the same domain instead of provisioning a bot account.
+// `amount` is passed in millimes from the donation form (see donation-button.tsx).
+
+export async function handleDonationStart(amount: string) {
+  const shopUrl = process.env.NEXT_PUBLIC_BASE_URL!;
+
+  try {
+    const res = await fetch(`${FLOUCI_BASE}/generate_payment`, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${process.env.FLOUCI_PUBLIC_KEY}:${process.env.FLOUCI_SECRET_KEY}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        amount,
+        accept_card: true,
+        success_link: `${shopUrl}/api/flouci/verify-donation`,
+        fail_link: `${shopUrl}/api/flouci/verify-donation`,
+        developer_tracking_id: `donation_${shortId()}`,
+      }),
+      cache: "no-store",
+    });
+
+    const data = await res.json();
+    console.log("Flouci donation generate_payment response:", JSON.stringify(data));
+
+    if (!data.result?.success || !data.result?.link) {
+      throw new Error(`Flouci donation generate_payment failed: ${JSON.stringify(data)}`);
+    }
+
+    redirect(data.result.link);
+  } catch (error: any) {
+    if (error.message === "NEXT_REDIRECT") throw error;
+    console.error("Flouci donation redirect failed:", error);
+    redirect(`${process.env.NEXT_PUBLIC_BASE_URL!}/?donation=error`);
+  }
+}
+
 // `amount` is bound in first via `handleFlouciStart.bind(null, "94000")` from
 // a <form action={...}>, so every subscribe button can charge the right
 // amount instead of a single hard-coded value.

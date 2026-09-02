@@ -66,7 +66,7 @@ export function Header() {
     <header
       ref={headerRef}
 className={`
-  fixed top-4 left-1/2 transform -translate-x-1/2 z-50
+  fixed top-4 inset-x-0 mx-auto w-fit max-w-[calc(100%-2rem)] z-50
   transition-all duration-300 ease-in-out
   bg-white/90
   backdrop-blur-xl

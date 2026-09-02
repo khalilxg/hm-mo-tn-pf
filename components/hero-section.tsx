@@ -19,7 +19,7 @@ export function HeroSection() {
     <section className="py-20 px-4 relative overflow-hidden min-h-screen flex flex-col justify-between">
       <TunisiaMotif className="absolute top-6 right-6 w-40 h-40 text-white pointer-events-none hidden md:block" opacity={0.05} />
       <TunisiaMotif className="absolute bottom-10 left-6 w-32 h-32 text-white pointer-events-none hidden md:block rotate-12" opacity={0.04} />
-      <div className="flex items-start justify-center pt-16" style={{ minHeight: 'clamp(260px, 45vw, 420px)' }}>
+      <div className="flex items-start justify-center pt-16 relative" style={{ minHeight: 'clamp(260px, 45vw, 420px)' }}>
         <ParticleTextEffect words={["مرشد", "قانون", "تونس", "قانون"]} />
       </div>
 
@@ -42,17 +42,12 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Visible, unmissable notice: the assistant only understands Arabic
-              script (plus Latin letters, Arabic-Indic/Latin numerals and
-              punctuation). This is intentionally placed right above the
-              action buttons so nobody can miss it before they start typing. */}
-          <div
-            dir="rtl"
-            className="mt-6 mx-auto max-w-2xl flex items-center justify-center gap-2 rounded-xl border border-yellow-300/40 bg-yellow-400/10 px-4 py-2.5 text-yellow-100"
-          >
-            <Languages className="w-5 h-5 shrink-0" />
-            <p className="text-xs md:text-sm font-semibold leading-relaxed">
-              تنبيه: يتمم مرشد اللغة العربية فقط (مع الأرقام والحروف اللاتينية وعلامات الترقيم).
+          {/* Simple, visible reminder: chat with Morched uses Arabic script,
+              not Latin. */}
+          <div dir="rtl" className="mt-5 flex items-center justify-center gap-1.5 text-yellow-200/90">
+            <Languages className="w-4 h-4 shrink-0" />
+            <p className="text-xs md:text-sm font-medium">
+              الدردشة مع مرشد بالأحرف العربية فقط، وليس اللاتينية.
             </p>
           </div>
 
