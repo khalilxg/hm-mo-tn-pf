@@ -14,22 +14,33 @@ import { SUBSCRIPTION_PRICE_MILLIMES } from "@/lib/pricing"
 
 const subscribeWithAmount = handleFlouciStart.bind(null, SUBSCRIPTION_PRICE_MILLIMES)
 
+// Same dark tone as the canvas's own inline background (particle-text-effect.tsx)
+// so there's no visible "flash"/color mismatch while the canvas mounts on refresh.
+const PARTICLE_BG = "#1a0000"
+
 export function HeroSection() {
   return (
-    <section className="py-20 px-4 relative overflow-hidden min-h-screen flex flex-col justify-between">
+    <section className="pt-14 pb-10 md:py-20 px-4 relative overflow-hidden min-h-screen flex flex-col justify-between">
       <TunisiaMotif className="absolute top-6 right-6 w-40 h-40 text-white pointer-events-none hidden md:block" opacity={0.05} />
       <TunisiaMotif className="absolute bottom-10 left-6 w-32 h-32 text-white pointer-events-none hidden md:block rotate-12" opacity={0.04} />
-      <div className="flex items-start justify-center pt-16 relative" style={{ minHeight: 'clamp(260px, 45vw, 420px)' }}>
+
+      {/* Full-bleed (edge-to-edge, cancels the section's own px-4) reserved
+          box for the particle animation — sized generously so the canvas's
+          fixed 100px lettering has room to render at full size instead of
+          being cramped, and its background matches the canvas's own so a
+          refresh never shows a mismatched flash/blink before particles draw. */}
+      <div
+        className="flex items-start justify-center pt-16 relative -mx-4"
+        style={{ minHeight: 'clamp(380px, 60vw, 560px)', backgroundColor: PARTICLE_BG }}
+      >
         <ParticleTextEffect words={["مرشد", "قانون", "تونس", "قانون"]} />
       </div>
 
-      <div className="container mx-auto text-center relative z-10 pb-8">
+      <div className="container mx-auto text-center relative z-10 pb-8 pt-10 md:pt-14">
         <div className="max-w-4xl mx-auto">
           <div className="flex flex-col items-center justify-center text-center px-4">
             <h2 className="text-xl md:text-2xl font-bold text-white mb-4 max-w-3xl leading-relaxed">
-            
-            المرشد القانوني التونسي هو أول منصة ذكاء اصطناعي للمساعدة القانونية في تونس.
-            
+              المرشد القانوني التونسي هو أول منصة ذكاء اصطناعي للمساعدة القانونية في تونس.
             </h2>
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm">
               <span className="relative flex h-2 w-2">
@@ -44,14 +55,14 @@ export function HeroSection() {
 
           {/* Simple, visible reminder: chat with Morched uses Arabic script,
               not Latin. */}
-          <div dir="rtl" className="mt-5 flex items-center justify-center gap-1.5 text-yellow-200/90">
+          <div dir="rtl" className="mt-4 flex items-center justify-center gap-1.5 text-yellow-200/90">
             <Languages className="w-4 h-4 shrink-0" />
             <p className="text-xs md:text-sm font-medium">
               الدردشة مع مرشد بالأحرف العربية فقط، وليس اللاتينية.
             </p>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-6">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-3 mt-5">
             {/* Student test view — free, 10-message trial */}
             <form action={handleFreeStart}>
               <button
@@ -106,11 +117,6 @@ export function HeroSection() {
           <p className="text-xs text-gray-400 mt-2 text-center">
             تجربة الطلبة: 10 رسائل فقط &nbsp;·&nbsp; المشتركون: رسائل غير محدودة طوال السنة
           </p>
-
-          <div className="mt-16 mb-8">
-            <div className="group relative m-auto max-w-6xl">
-            </div>
-          </div>
         </div>
       </div>
     </section>

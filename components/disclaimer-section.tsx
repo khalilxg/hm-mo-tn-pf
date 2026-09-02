@@ -37,7 +37,7 @@ export function DisclaimerSection() {
     <section
       id="disclaimer"
       dir="rtl"
-      className="relative py-20 px-4 bg-red-950 overflow-hidden scroll-mt-[var(--header-space,6rem)]"
+      className="relative py-12 md:py-20 px-4 bg-red-950 overflow-hidden scroll-mt-[var(--header-space,6rem)]"
     >
       <TunisiaMotif className="absolute -top-10 -left-10 w-64 h-64 text-white" opacity={0.05} />
       <TunisiaMotif className="absolute -bottom-16 -right-16 w-72 h-72 text-white rotate-180" opacity={0.04} />

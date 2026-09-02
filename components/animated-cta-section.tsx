@@ -9,7 +9,7 @@ export function AnimatedCTASection() {
   const contentRef = useRef<HTMLDivElement>(null)
 
   return (
-    <section className="relative py-20 px-4 overflow-hidden">
+    <section className="relative py-12 md:py-20 px-4 overflow-hidden">
       <div className="absolute inset-0">
         <div className="h-full w-full bg-gradient-to-br from-red-800 via-red-900 to-red-800">
           <BackgroundPaths />

@@ -14,7 +14,7 @@ import { handleDonationStart } from "./hero-section-action"
  * grant chat access like a subscription does, it just says thank you.
  */
 const MIN_AMOUNT = 1
-const DEFAULT_AMOUNT = 10
+const DEFAULT_AMOUNT = 100
 
 export function DonationButton() {
   const [open, setOpen] = useState(false)
@@ -25,16 +25,18 @@ export function DonationButton() {
 
   return (
     <>
-      {/* Floating button — bottom-left so it never collides with anything
-          anchored bottom-right. */}
+      {/* Floating button — bottom-left. Clearly reads as a donation button:
+          Arabic label on top, heart underneath, always visible (not hidden
+          on mobile), with a soft pulsing ring so it stands out. */}
       <button
         type="button"
         onClick={() => setOpen(true)}
-        aria-label="ادعم مرشد"
-        className="fixed bottom-6 left-6 z-50 flex items-center gap-2 rounded-full bg-white px-4 py-3 text-red-600 shadow-xl transition hover:scale-110 hover:bg-red-50"
+        aria-label="تبرع لدعم مرشد"
+        className="fixed bottom-6 left-6 z-50 flex w-16 h-16 flex-col items-center justify-center gap-0.5 rounded-full bg-white text-red-600 shadow-xl transition hover:scale-110 hover:bg-red-50"
       >
-        <Heart className="w-6 h-6 fill-red-500 text-red-500" />
-        <span className="hidden sm:inline text-sm font-bold">ادعم مرشد</span>
+        <span className="absolute inset-0 rounded-full bg-red-400/40 animate-ping" />
+        <span className="relative text-[11px] font-extrabold leading-none">تبرع</span>
+        <Heart className="relative w-5 h-5 fill-red-500 text-red-500" />
       </button>
 
       <AnimatePresence>

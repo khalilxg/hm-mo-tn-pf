@@ -55,7 +55,7 @@ export function AnimatedFeaturesSection() {
   return (
     <section
       id="features"
-      className="py-20 px-4 bg-red-950 relative overflow-hidden"
+      className="py-12 md:py-20 px-4 bg-red-950 relative overflow-hidden"
     >
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none opacity-20">
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-red-500 rounded-full blur-[120px]" />

@@ -24,7 +24,7 @@ function validate(values: FormState): FormErrors {
   const errors: FormErrors = {}
   if (!values.name.trim()) errors.name = "الاسم مطلوب"
   if (!values.email.trim()) {
-    errors.email = " ! البريد الإلكتروني مطلوب"
+    errors.email = "البريد الإلكتروني مطلوب"
   } else if (!EMAIL_RE.test(values.email.trim())) {
     errors.email = "الرجاء إدخال بريد إلكتروني صالح"
   }
@@ -75,7 +75,7 @@ export function ContactSection() {
   }
 
   return (
-    <section id="contact" dir="rtl" className="py-16 px-4 bg-background">
+    <section id="contact" dir="rtl" className="py-10 md:py-16 px-4 bg-background">
       <div className="container mx-auto max-w-5xl">
         <div className="text-center mb-10">
           <h2 className="text-2xl md:text-3xl font-extrabold mb-3">اتصل بنا</h2>

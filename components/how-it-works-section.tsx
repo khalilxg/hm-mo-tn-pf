@@ -26,7 +26,7 @@ const steps = [
 
 export function HowItWorksSection() {
   return (
-    <section id="how-it-works" dir="rtl" className="py-20 px-4 bg-background relative overflow-hidden">
+    <section id="how-it-works" dir="rtl" className="py-12 md:py-20 px-4 bg-background relative overflow-hidden">
       <div className="container mx-auto max-w-5xl relative z-10">
         <div className="text-center mb-14">
           <motion.span

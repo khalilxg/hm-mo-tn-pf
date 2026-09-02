@@ -71,7 +71,7 @@ export function FAQSection() {
 
   return (
     <section 
-      id="faq" className="py-20 px-4 bg-background"
+      id="faq" className="py-12 md:py-20 px-4 bg-background"
     >
       <div className="container mx-auto max-w-4xl">
         <div className="text-center mb-16">

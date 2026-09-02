@@ -67,15 +67,13 @@ export function PricingSection() {
   return (
     <section
       id="pricing"
-      className="py-16 px-4 bg-gradient-to-b from-red-700 to-red-900 min-h-screen text-white relative"
+      className="py-10 md:py-16 px-4 bg-gradient-to-b from-red-700 to-red-900 min-h-screen text-white relative"
     >
-      {/* Raised well above the default bottom-right corner so it doesn't
-          overlap the AnythingLLM chat bubble (bottom-right) or the "student
-          test" badge that floats just above it (see anythingllm-widget.tsx
-          and widget-language-badge.tsx). */}
+      {/* Left side, stacked just above the donation button
+          (components/donation-button.tsx, bottom-6 left-6, ~64px tall). */}
       <a
         href="tel:+21628888612"
-        className="fixed bottom-44 right-6 bg-white hover:bg-red-100 text-red-600 rounded-full shadow-xl p-4 z-40 flex items-center justify-center transition transform hover:scale-110"
+        className="fixed bottom-28 left-6 bg-white hover:bg-red-100 text-red-600 rounded-full shadow-xl p-4 z-40 flex items-center justify-center transition transform hover:scale-110"
       >
         <Phone className="w-7 h-7" />
       </a>
