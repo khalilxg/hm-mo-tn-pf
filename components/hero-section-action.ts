@@ -146,7 +146,7 @@ export async function handleFlouciStart(amount: string = SUBSCRIPTION_PRICE_MILL
       },
       body: JSON.stringify({
         amount,
-        
+        accept_card: true,
         success_link: `${shopUrl}/api/flouci/verify`,    // Flouci appends ?payment_id=xxx
         fail_link: `${shopUrl}/api/flouci/verify`,       // same — we verify server-side
         developer_tracking_id: `order_${shortId()}`,
