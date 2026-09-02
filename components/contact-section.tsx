@@ -24,7 +24,7 @@ function validate(values: FormState): FormErrors {
   const errors: FormErrors = {}
   if (!values.name.trim()) errors.name = "الاسم مطلوب"
   if (!values.email.trim()) {
-    errors.email = "البريد الإلكتروني مطلوب"
+    errors.email = " ! البريد الإلكتروني مطلوب"
   } else if (!EMAIL_RE.test(values.email.trim())) {
     errors.email = "الرجاء إدخال بريد إلكتروني صالح"
   }
