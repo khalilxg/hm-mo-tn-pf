@@ -76,9 +76,10 @@ export function PricingSection() {
         <button
           type="submit"
           aria-label="اشترِ باقة مرشد — 94 دينار / سنة"
-            className="flex h-20 w-20 items-center justify-center rounded-full bg-white text-red-600 shadow-xl transition transform hover:scale-110 hover:bg-red-100"
+          className="flex h-20 w-20 flex-col items-center justify-center gap-1 rounded-full bg-white text-red-600 shadow-xl transition transform hover:scale-110 hover:bg-red-100"
         >
-          <ShoppingBag className="w-8 h-8" />
+          <span className="text-xs font-extrabold leading-none">شراء</span>
+          <ShoppingBag className="h-5 w-5" aria-hidden="true" />
         </button>
       </form>
 
