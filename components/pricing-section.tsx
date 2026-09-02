@@ -72,13 +72,13 @@ export function PricingSection() {
           (components/donation-button.tsx, bottom-6 left-6, ~64px tall).
           Buys the 94 DT/year pack directly — replaces the old "call us"
           phone button. */}
-      <form action={subscribeWithAmount} className="fixed bottom-28 left-6 z-40">
+      <form action={subscribeWithAmount} className="fixed bottom-36 left-6 z-40">
         <button
           type="submit"
           aria-label="اشترِ باقة مرشد — 94 دينار / سنة"
-          className="bg-white hover:bg-red-100 text-red-600 rounded-full shadow-xl p-4 flex items-center justify-center transition transform hover:scale-110"
+          className="bg-white hover:bg-red-100 text-red-600 rounded-full shadow-xl p-5 flex items-center justify-center transition transform hover:scale-110"
         >
-          <ShoppingBag className="w-7 h-7" />
+          <ShoppingBag className="w-8 h-8" />
         </button>
       </form>
 
