@@ -76,26 +76,10 @@ export function HeroSection() {
                 }}
               >
                 <GraduationCap className="w-4 h-4" />
-                <span>تجربة الطلبة – 10 رسائل مجانًا</span>
+                <span>تجربة 10 رسائل مجانًا</span>
               </button>
             </form>
 
-            {/* Enterprise — redirects to the main Morched platform */}
-            <form action={handleEnterpriseStart}>
-              <button
-                type="submit"
-                className="inline-flex items-center gap-3 px-7 py-2.5 rounded-full font-bold text-base transition-all duration-150 hover:scale-105 active:scale-95 border border-white/30"
-                style={{
-                  backgroundColor: 'rgba(255,255,255,0.1)',
-                  color: '#ffffff',
-                  boxShadow: '0 4px 14px 0 rgba(0,0,0,0.15)',
-                  backdropFilter: 'blur(8px)',
-                }}
-              >
-                <Building2 className="w-4 h-4" />
-                <span>للمؤسسات – منصة مرشد الكاملة</span>
-              </button>
-            </form>
 
             {/* Paid subscription — single yearly plan */}
             <form action={subscribeWithAmount}>
