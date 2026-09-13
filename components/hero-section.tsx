@@ -1,6 +1,6 @@
 'use client'
 
-import { Zap, GraduationCap, Building2, Languages } from "lucide-react"
+import { ArrowUpRight, Zap, GraduationCap, Building2, Languages } from "lucide-react"
 import { ParticleTextEffect } from "./particle-text-effect"
 import { InfiniteSlider } from "./ui/infinite-slider"
 import { ProgressiveBlur } from "./ui/progressive-blur"
@@ -62,38 +62,35 @@ export function HeroSection() {
             </p>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-3 mt-5">
-            {/* Student test view — free, 10-message trial */}
-            <form action={handleFreeStart}>
-              <button
-                type="submit"
-                className="inline-flex items-center gap-3 px-7 py-2.5 rounded-full font-bold text-base transition-all duration-150 hover:scale-105 active:scale-95 border border-white/30"
-                style={{
-                  backgroundColor: 'rgba(255,255,255,0.1)',
-                  color: '#ffffff',
-                  boxShadow: '0 4px 14px 0 rgba(0,0,0,0.15)',
-                  backdropFilter: 'blur(8px)',
-                }}
-              >
-                <GraduationCap className="w-4 h-4" />
-                <span>تجربة 10 رسائل مجانًا</span>
-              </button>
-            </form>
-
+          <div className="flex flex-col items-center gap-5 mt-5">
+            {/* Existing subscribers should see their workspace first. */}
+            <a
+              href="https://loi.morched.tn/workspace/loi"
+              className="inline-flex items-center gap-3 rounded-md border-2 border-yellow-300 bg-yellow-300 px-8 py-3 font-bold text-base text-red-950 shadow-[0_8px_28px_rgba(250,204,21,0.28)] transition-transform duration-150 hover:scale-105 hover:bg-yellow-200 active:scale-95"
+            >
+              <ArrowUpRight className="w-5 h-5" />
+              <span>الدخول إلى منصتك</span>
+            </a>
 
             {/* Paid subscription — single yearly plan */}
             <form action={subscribeWithAmount}>
               <button
                 type="submit"
-                className="inline-flex items-center gap-3 px-7 py-2.5 rounded-full font-bold text-base transition-all duration-150 hover:scale-105 active:scale-95"
-                style={{
-                  backgroundColor: '#ffffff',
-                  color: '#ef4444',
-                  boxShadow: '0 4px 24px 0 rgba(239,68,68,0.25)',
-                }}
+                className="inline-flex items-center gap-3 rounded-full border border-white/30 px-7 py-2.5 font-bold text-base text-white transition-all duration-150 hover:border-white hover:bg-white/10 active:scale-95"
               >
-                <Zap className="w-4 h-4 fill-current" />
+                <Zap className="w-4 h-4 fill-current text-yellow-300" />
                 <span>94 دينار / سنة عبر Flouci — اشترك</span>
+              </button>
+            </form>
+
+            {/* Student test view — free, 10-message trial */}
+            <form action={handleFreeStart}>
+              <button
+                type="submit"
+                className="inline-flex items-center gap-2 border-b border-white/70 pb-0.5 font-medium text-sm text-white/90 transition-colors duration-150 hover:border-white hover:text-white active:scale-95"
+              >
+                <GraduationCap className="w-4 h-4" />
+                <span>تجربة 10 رسائل مجانًا</span>
               </button>
             </form>
           </div>
