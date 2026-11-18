@@ -40,7 +40,7 @@ export function HeroSection() {
         <div className="max-w-4xl mx-auto">
           <div className="flex flex-col items-center justify-center text-center px-4">
             <h2 className="text-xl md:text-2xl font-bold text-white mb-4 max-w-3xl leading-relaxed">
-              المرشد القانوني التونسي هو أول منصة ذكاء اصطناعي للمساعدة القانونية في تونس.
+              مرشد — رفيقك الذكي لفهم القانون التونسي ومراجعته.
             </h2>
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm">
               <span className="relative flex h-2 w-2">
@@ -48,7 +48,7 @@ export function HeroSection() {
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
               </span>
               <p className="text-sm md:text-base font-medium text-gray-200">
-                أكثر من <span className="text-white font-bold">+2000</span> طالب ومستخدم في تونس
+                للـطلبة والباحثين في القانون التونسي
               </p>
             </div>
           </div>
@@ -58,7 +58,7 @@ export function HeroSection() {
           <div dir="rtl" className="mt-4 flex items-center justify-center gap-1.5 text-yellow-200/90">
             <Languages className="w-4 h-4 shrink-0" />
             <p className="text-xs md:text-sm font-medium">
-              الدردشة مع مرشد بالأحرف العربية فقط، وليس اللاتينية.
+              اطرح سؤالك بالعربية حول درس أو مفهوم أو نص قانوني تونسي.
             </p>
           </div>
 
