@@ -4,8 +4,11 @@ import "./globals.css"
 import ClientLayout from "./ClientLayout"
 
 export const metadata: Metadata = {
-  title: "أول منصة للمساعد القانوني الذكي  في تونس Morched Legale El Tounsi - مرشد القانوني التونسي",
-  description: "Morched Legale est une plateforme AI sous format chat comme messenger, actualisé avec les documents legales de tunisie, qui vise les étudiants et les professionnels. Des abonnements et differents offres sont disponibles. مرشد .. أول منصة للمساعد القانوني الذكي  في تونس  ",
+  title: "مرشد | المساعد القانوني الذكي في تونس",
+  description: "مرشد منصة ذكية تساعد طلبة القانون والباحثين والمهنيين على فهم القانون التونسي ومراجعة النصوص والمراجع القانونية.",
+  metadataBase: new URL("https://legale.morched.tn"),
+  openGraph: { title: "مرشد | المساعد القانوني الذكي في تونس", description: "افهم القانون التونسي وراجع دروسك ومراجعك بمساعدة مرشد.", url: "https://legale.morched.tn", siteName: "مرشد", locale: "ar_TN", type: "website" },
+  twitter: { card: "summary_large_image", title: "مرشد | المساعد القانوني الذكي في تونس", description: "مساعدة ذكية لفهم القانون التونسي ومراجعته." },
   manifest: "/manifest.webmanifest",
   icons: {
     icon: "/favicon.svg",

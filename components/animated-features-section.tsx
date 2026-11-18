@@ -83,8 +83,8 @@ export function AnimatedFeaturesSection() {
           <BentoCard
             className="col-span-2 row-span-1 md:row-span-2 bg-red-600"
             title="قاعدة بيانات القانون الوطنية"
-            value="+5000 وثيقة تونسية"
-            subtitle="القوانين وأحكام المحاكم والجرائد الرسمية مباشرة. يحتوي مرشد القانوني التونسي على جميع الوثائق من 1980 إلى 2025 ويتم تحديثه تلقائياً عند كل قانون جديد."
+            value="مراجع قانونية تونسية"
+            subtitle="مكتبة متخصصة تساعدك على الرجوع إلى النصوص والمراجع القانونية التونسية. تُحدَّث قاعدة البيانات دوريًا."
             icon={<Scale size={20} />}
             colors={["#cc0000", "#7f1d1d"]}
             delay={0.1}
@@ -108,10 +108,10 @@ export function AnimatedFeaturesSection() {
              <p className="text-white text-sm md:text-base font-bold leading-relaxed">
                <span dir="ltr">ChatGPT</span> يعطي إجابات قانونية عامة، بينما
                <span className="text-red-500"> مرشد القانوني التونسي </span>
-               مبني حصريًا على قاعدة بيانات القانون التونسي.
+               مصمم لمساعدتك على البحث والفهم في سياق القانون التونسي.
              </p>
              <div className="mt-4 flex gap-4 text-[10px] md:text-xs">
-                <span className="flex items-center gap-1 text-green-400"><ShieldCheck size={12}/> مبني على القانون التونسي فقط</span>
+                <span className="flex items-center gap-1 text-green-400"><ShieldCheck size={12}/> مخصص للسياق القانوني التونسي</span>
                 <span className="flex items-center gap-1 text-red-400"><AlertTriangle size={12}/> أداة تعليمية، ليست استشارة قانونية</span>
              </div>
           </motion.div>
@@ -136,10 +136,10 @@ export function AnimatedFeaturesSection() {
           <div className="col-span-2 md:col-span-4 bg-gradient-to-r from-red-600 to-red-900 p-6 rounded-3xl flex items-center justify-between border border-white/10 group">
             <div>
                <h4 className="text-white font-black text-lg md:text-2xl">
-                 المطبوعات <span dir="ltr">1980–2025</span>
+                 المطبوعات <span dir="ltr">مراجع القانون التونسي</span>
                </h4>
                <p className="text-red-100 text-xs md:text-sm">
-                 تتم تحديث قاعدة المعلومات تلقائياً مع كل قانون جديد لضمان الوصول إلى أحدث معلومات قانونية.
+                 تُحدَّث قاعدة المعلومات دوريًا؛ تحقّق من الرائد الرسمي عند الحاجة إلى آخر تعديل.
                </p>
             </div>
             <div className="bg-white/20 p-3 rounded-2xl group-hover:scale-110 transition-transform">

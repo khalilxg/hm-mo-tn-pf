@@ -4,6 +4,10 @@ import { useRef } from "react"
 import { Button } from "./ui/button"
 import { ArrowRight } from "lucide-react"
 import { BackgroundPaths } from "./ui/floating-paths"
+import { handleFlouciStart } from "./hero-section-action"
+import { SUBSCRIPTION_PRICE_MILLIMES } from "@/lib/pricing"
+
+const subscribeWithAmount = handleFlouciStart.bind(null, SUBSCRIPTION_PRICE_MILLIMES)
 
 export function AnimatedCTASection() {
   const contentRef = useRef<HTMLDivElement>(null)
@@ -53,18 +57,18 @@ export function AnimatedCTASection() {
             className="text-xl text-white/90 mb-8 max-w-2xl mx-auto drop-shadow-md animate-fade-in-up"
             style={{ animationDelay: "0.7s" }}
           >
-            انضم إلى آلاف طلاب القانون الذين يعتمدون على مرشد القانوني التونسي للفهم والمراجعة والنجاح.
+            ابدأ في فهم المفاهيم القانونية ومراجعة دروسك بمساعدة مرشد.
           </p>
           <div
             className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up"
             style={{ animationDelay: "0.9s" }}
           >
-            <a href="mailto:contact@aibc.tn?subject=اشتراك%20في%20مرشد%20القانوني%20التونسي&body=مرحباً%20أرغب%20بالتسجيل%20في%20مرشد%20القانوني%20التونسي.">
-              <Button size="lg" className="bg-white text-red-900 hover:bg-white/90 group">
-                اشترك من الآن
+            <form action={subscribeWithAmount}>
+              <Button type="submit" size="lg" className="bg-white text-red-900 hover:bg-white/90 group">
+                اشترك الآن — 94 دينارًا سنويًا
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Button>
-            </a>
+            </form>
 
             <a
               href="https://wa.me/21628888612?text=مرحباً%20أريد%20التواصل"
